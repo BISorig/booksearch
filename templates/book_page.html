@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+
+{% block image %}
+    {% if not user_image %}
+        ../static/img/profile-def.png
+    {% else %}
+        ../static/img/users/{{current_user.id}}.jpg
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<div class="page" align="center">
+    <div class="book-page-title">{{ title }}<br>
+        {% if orig_name %}
+        ({{ orig_name }})
+        {% endif %}
+    </div>
+    <div class="image-status">
+        {% if image != '-' %}
+        <img src="{{ image }}" class="book-page-image">
+        {% else %}
+        <img src="../static/img/no-data.jpg" class="book-page-image">
+        {% endif %}
+    </div>
+    {% if current_user.is_authenticated %}
+
+    <div class="book-buttons">
+        <div class="desc-users">
+            <p>Кол-во читающих: {{ num_of_readers }}</p>
+            <p>Кол-во добавивших в избранное: {{ favorites }}</p>
+        </div>
+        {% if book_id in user_books %}
+        <a href="/del_book/{{book_id}}"><button class="btn btn-primary btn-lg">Удалить из читаемого</button></a>
+        {% else %}
+        <a href="/add_book/{{book_id}}"><button class="btn btn-primary btn-lg">Добавить в читаемое</button></a>
+        {% endif %}
+
+        {% if book_id in favorite_books %}
+        <a href="/del_favorite_book/{{book_id}}"><button class="btn btn-lg btn-primary">Удалить из избранного</button></a>
+        {% else %}
+        <a href="/add_favorite_book/{{book_id}}"><button class="btn btn-lg btn-primary">Добавить в избранное</button></a>
+        {% endif %}
+    </div>
+    {% endif %}
+    <div class="book-page-description" align="left">
+        <div class="author-desc">
+            <div class="book-page-author-genre">
+                <p>Название: {{ title }}</p>
+                {% if orig_name %}
+                <p>Оригинальное название: {{ orig_name }}</p>
+                {% endif %}
+                {% if author and author != '-' %}
+                <p>Автор: {{ author }}</p>
+                {% endif %}
+                {% if genre and genre != '-' %}
+                <p>Жанр: {{ genre }}</p>
+                {% endif %}
+                {% if work_year %}
+                <p>Год публикации: {{ work_year }}</p>
+                {% endif %}
+                {% if work_year_of_write %}
+                <p>Год написания: {{ work_year_of_write }}</p>
+                {% endif %}
+            </div>
+            <div class="book-info">
+                <p>Аннотация:</p>
+                <p>{{ info }}</p>
+            </div>
+        </div>
+        <div class="similars-awards">
+            <div class="awards">
+                <div class="nominations">
+                    <p>Номинации:</p>
+                    {% if noms[0] %}
+                    <ul>
+                        {% for item in noms %}
+                        {% if item %}
+                        <li>{{ item }}</li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>-</p>
+                    {% endif %}
+                </div>
+
+                <div class="wins">
+                    <p>Награды:</p>
+                    {% if wins[0] %}
+                    <ul>
+                        {% for item in wins %}
+                        {% if item %}
+                        <li>{{ item }}</li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    -
+                    {% endif %}
+                </div>
+
+            </div>
+            <div class="similars">
+                <p>Похожие произведения:</p>
+                {% if similars[0] %}
+                <ul>
+                    {% for item in similars %}
+                    {% if item %}
+                    <li>{{ item }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% else %}
+                -
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="card border-success mb-3 comments-block">
+        <div class="card-header">Комментарии пользователей</div>
+        <div class="card-body">
+            {% if current_user.is_authenticated %}
+                <form method="post">
+                    {{ form.hidden_tag() }}
+                    <div>
+                        {{ form.comment_field(class="form-control comment-field", id="exampleTextarea", rows="3") }}
+                        {{ form.submit(type="submit", class="btn btn-primary comment-btn btn-lg") }}
+                    </div>
+                    <div class="msg-com">{{ message }}</div>
+                </form>
+                {% else %}
+                <span style="font-size: 1.5rem">Для добавления комментариев необходимо авторизоваться</span><br><br>
+                {% endif %}
+                <div>
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <div class="toast show">
+                              <div class="toast-header">
+                                <strong class="me-auto">
+                                    {{ comment[0] }}
+                                      {% if current_user.is_authenticated and current_user.admin %}
+                                        <a class="del-com" href="/del_comment/{{ book_id }}/{{comment[0]}}&{{comment[1]}}&{{comment[2]}}">
+                                        <button class="btn-del btn btn-danger">Удалить комментарий</button></a>
+                                {% endif %}
+                                </strong>
+                                  <span class="date-comment">{{ comment[2] }}</span>
+                              </div>
+                              <div class="toast-body">
+                                {{ comment[1] }}
+                              </div>
+
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                    <span style="font-size: 1.5rem">Комментариев пока нет :(</span>
+                    {% endif %}
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

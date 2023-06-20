@@ -1,0 +1,337 @@
+html {
+    font-size: 14px;
+}
+
+h2.main-title {
+    margin-top: 0.6rem;
+    font-size: 2rem;
+}
+
+div.carousel {
+    margin: 0.5rem;
+}
+
+.form {
+    background-color: white;
+    width: 50rem;
+    text-align: left;
+    font-size: 2rem;
+    margin: 12rem auto;
+    padding: 5rem;
+}
+
+.form h1{
+    text-align: center;
+}
+
+a.button {
+    text-decoration: none;
+}
+
+a.main {
+    margin-left: 2rem;
+}
+
+.navbar-toggler{
+    max-height: 45px;
+}
+
+.text {
+    font-size: 1rem;
+}
+
+.login {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+
+.title{
+    border-bottom: 0.2rem solid black;
+}
+
+
+.lab {
+    margin-top: 10px;
+}
+
+table.top {
+    width: 200px;
+}
+
+
+.menu {
+  display: flex;
+}
+
+.menu-login{
+    margin: 20px;
+}
+
+.nav-tabs {
+    margin-right: 50px;
+}
+
+.navbar {
+     background-color: white;
+}
+
+.nav-item {
+    float: left;
+    margin: 10px 50px 0px 0px;
+}
+
+.div-nav {
+    position: fixed;
+    z-index: 1;
+    min-width: 100%;
+}
+
+
+.collapse {
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+.collapsing {
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+.page {
+    margin: 0 auto;
+    width: 1000px;
+    background-color: white;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+    padding: 3rem;
+}
+
+.content {
+    margin: 0 5rem;
+}
+
+.carousel slide {
+    width: 100px;
+}
+
+body {
+    overflow-x: scroll;
+    background: url("../img/5.jpg");
+    background-size: 100%;
+}
+
+.description {
+    text-align: left;
+    height: 30rem;
+    width: 100%;
+    display: inline-block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    min-width: 1000px;
+}
+
+.slide-description {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+}
+
+.description-text {
+    float: left;
+    width: 400px;
+}
+
+.d-block {
+    display: block;
+    margin: 0 auto;
+}
+
+.form-author, .form-genre {
+    width: 50%;
+    float: left;
+}
+
+.form-floating {
+    z-index: 0;
+}
+
+.book-page-image {
+    width: 30rem;
+}
+
+.book-page-title {
+    font-size: 4rem;
+}
+
+.book-page-description{
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-top: 3px solid black;
+}
+
+.book-page-author-genre {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    padding: 1rem;
+}
+
+.book-info {
+    display: inline-block;
+    padding: 1rem;
+    vertical-align: top;
+    display: inline-block;
+    width: 67%;
+}
+
+.similars {
+    display: inline-block;
+    width: 40%;
+    margin-left: 10%;
+    vertical-align: top;
+}
+
+.awards {
+    display: inline-block;
+    margin-left: 5%;
+    width: 40%;
+}
+
+.comments-block {
+    width: 90%;
+    text-align: left;
+}
+
+.card-header {
+    font-size: 1.5rem;
+}
+
+.comment-field {
+    width: 70%;
+    display: inline-block;
+}
+
+.comment-btn {
+    vertical-align: top;
+}
+
+.me-auto {
+    font-size: 1.5rem;
+}
+
+.toast-body {
+    font-size: 1.3rem;
+}
+
+.toast {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.date-comment {
+    font-size: 1.1rem;
+}
+
+.author-desc {
+    border-bottom: 3px solid black;
+}
+
+.similars-awards {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid black;
+}
+
+.desc-users {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.content {
+    margin-top: 5rem;
+}
+
+.profile-image {
+    width: 80%;
+    text-align: center;
+    font-size: 2rem;
+
+}
+
+.avat {
+    border-radius: 50%;
+
+}
+
+.book {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.shelf {
+    border-bottom: 3px solid black;
+    margin: 3rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.shelfs {
+    text-align: left;
+    margin-top: 7rem;
+}
+
+.title-shelfs {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.title-book-shelfs {
+    width: 150px;
+}
+
+.user-desc {
+    text-align: left;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.books-table {
+    font-size: 1.5rem;
+}
+
+.top {
+    text-align: left;
+    font-size: 1.5rem;
+    display: inline-block;
+    padding: 1rem;
+}
+
+.top td{
+    padding: 0.2rem 1rem;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.reg-msg {
+    margin-top: 2rem;
+    color: red;
+    text-align: center;
+}
+
+.carousel {
+    z-index: 0;
+}
+
+.del-com {
+    margin-left: 1rem;
+}
+
+.msg-com {
+    color: red;
+    font-size: 1.5rem;
+}
+
+
+
+

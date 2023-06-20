@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+
+{% block image %}
+    {% if not user_image %}
+        ../static/img/profile-def.png
+    {% else %}
+        ../static/img/users/{{current_user.id}}.jpg
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="page" align="center">
+        <div class="title">
+            <h1>Главная</h1>
+        </div>
+            <div class="description">
+
+                <div class="description-text">
+                    <h3>Описание:</h3>
+                    Название сайта говорит само за себя.
+                    КнигаПоиск - портал, на котором вы можете
+                    найти интересные для себя книги с помощью поиска по жанрам,
+                    авторам или годам; почитать отзывы и комментарии других пользователей,
+                    а также поделиться собственным мнением о произведении с другими.
+                </div>
+
+                <div id="carouselExampleDark" class="carousel carousel-dark slide slide-description">
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <a href="/book_page/1"><img src="https://fantlab.ru/images/editions/big/184?r=1575127844" class="d-block" width="200px"></a>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                          <a href="/book_page/3"><img src="https://fantlab.ru/images/editions/big/196?r=1611129942" class="d-block" width="200px"></a>
+                        </div>
+                        <div class="carousel-item">
+                          <a href="/book_page/5"><img src="https://fantlab.ru/images/editions/big/104713?r=1638023616" class="d-block" width="200px"></a>
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                </div>
+            </div>
+        <div class="tops">
+            <div class="top">
+                <table class="table-top">
+                    <tr>
+                        <td>Название</td>
+                        <td>Кол-во читающих</td>
+                    </tr>
+                    {% for book in top_read %}
+                    <tr>
+                        <td>{{ book[1] }}</td>
+                        <td>{{ book[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="top">
+                <table class="table-top">
+                    <tr>
+                        <td>Название</td>
+                        <td>Кол-во добавлений в "избранные"</td>
+                    </tr>
+                    {% for book in top_favorites %}
+                    <tr>
+                        <td>{{ book[1] }}</td>
+                        <td>{{ book[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="top">
+                <table class="table-top">
+                    <tr>
+                        <td>Имя</td>
+                        <td>Кол-во комментариев</td>
+                    </tr>
+                    {% for user in top_comments %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
